@@ -1,0 +1,108 @@
+1. instalacja debian
+2. konfiguracja statycznego IP:
+	sudo nano /etc/network/interfaces
+	zakomentowujemy dhcp
+	dodajemy:
+		iface ens192 inet static
+			address [ip_address]
+			netmask [mask]
+			gateway [gateway]
+			dns-nameservers [dns1] [dns2] [dns3]
+
+3. Instalacja ssh "sudo apt install openssh-server"
+
+4. instalacja ftp "sudo apt install vsftpd"
+
+5. Instalacja zależności:
+	polski język dla tesseract: "sudo apt install tesseract-ocr-pol"
+	pdf2image: "sudo apt install poppler-utils"
+	unpaper: "sudo apt install unpaper"
+	ghostscript: "sudo apt install ghostscript"
+	pngquant: "sudo apt install pngquant"
+	
+	
+6. Instalacja python3.8
+	sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev
+	
+	curl -O https://www.python.org/ftp/python/3.8.10/Python-3.8.10.tar.xz
+	tar -xf Python-3.8.10.tar.xz
+	cd Python-3.8.10
+	./configure --enable-optimizations --enable-loadable-sqlite-extensions
+	make -j 6 # 1.5x number of cores
+	Modify the -j to correspond to the number of cores in your processor. You can find the number by typing nproc.
+
+	sudo make altinstall
+	Do not use the standard make install as it will overwrite the default system python3 binary.
+	
+7. mkdir /ocr-server/data
+
+8. Umieszczenie plików projektu na serwerze w folderze /ocr-server
+
+9. Stworzenie venv w /ocr-server/documents_ocr_server
+	cd /ocr-server/documents_ocr_server
+	python3.8 -m venv ./venv
+	source venv/bin/activate
+	pip install -r /ocr-server/documents_ocr_server/documents_ocr_server/requirements.txt
+	
+10. Zmiana ustawień serwera
+	nano /ocr-server/documents_ocr_server/documents_ocr_server/settings.py
+	SERVER_IP = 192.168.1.1
+	TEMP_FILES_PATH = /ocr-server/data/temp
+	LOGGING_PATH = /ocr-server/data/logs
+	
+11. Utworzenie katalogów logs i temp:
+	mkdir /ocr-server/data/temp
+	mkdir /ocr-server/data/logs
+	
+12. Utworzenie użytkownika do obsługi ocr-server
+	sudo useradd ocr-server
+	sudo passwd ocr-server
+	
+13. Zmiana uprawnień do /ocr-server/data
+	sudo chown admin:ocr-server /ocr-server/data
+	sudo chmod 775 /ocr-server/data
+	
+	sudo chown admin:ocr-server /ocr-server/data/logs
+	sudo chmod 775 /ocr-server/data/logs
+	
+	sudo chown admin:ocr-server /ocr-server/data/temp
+	sudo chmod 775 /ocr-server/data/temp
+	
+14. Ustawienie działania aplikacji jako usługa
+
+sudo nano /etc/systemd/system/ocr_server.service
+	
+[Unit]
+Description=ocr_server
+After=network.target
+
+[Service]
+User=ocr-server
+Group=ocr-server
+WorkingDirectory=/ocr-server/documents_ocr_server/documents_ocr_server
+ExecStart=/ocr-server/documents_ocr_server/venv/bin/python3 /ocr-server/documents_ocr_server/documents_ocr_server/main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+	
+sudo systemctl enable ocr_server.service
+sudo systemctl start ocr_server.service
+sudo systemctl status ocr_server.service
+sudo journalctl -u ocr_server.service
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
