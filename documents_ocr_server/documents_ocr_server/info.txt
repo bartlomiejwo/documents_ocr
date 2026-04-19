@@ -1,0 +1,8 @@
+In order to use polish language you need to:
+sudo apt install tesseract-ocr-pol
+--------------
+In order to use pdf2image you need to:
+sudo apt install poppler-utils
+-----------------------------
+In order to install opencv without GUI dependencies:
+pip install opencv-python-headless
