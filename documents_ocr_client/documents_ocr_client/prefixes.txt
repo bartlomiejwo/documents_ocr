@@ -1,0 +1,31 @@
+WZ: 'WŻ', 'WWZJ', 'WZ4', 'KWŻ', 'WWZ', 'WZZ', 'WW2', 'WZJ', 'WWZZ', 'ZWWZ', 'KWZ', 'WWWZ', 'W2Ż', 'VZ', 'ALLETSWZ',
+        'WŻ2', 'WZ2', 'KWZZ', 'NZ', 'MZ', 'M2', 'WWZ2', 'W2','WZŻ', 'WŻŻ', 'M7', '1NZ', 'Z',
+
+WW: 'VW', 'WWW', 'WWWW',
+
+ZAS: '2AS', '7AS', 'Z4S', '2AŚ', 'AS', '2ZAS', 'ZAŚ', '_ZAS', '2A5', 'ŻAS', 'ZAŚS', 'ZA5',
+
+FVS: 'FVVS',
+
+LP: 'ŁP', '1P',
+
+RW:
+
+RS:
+
+LBN: '1BN', 'ŁBN', 'BN',
+
+----------------------------
+
+27.04.2022
+
+{'', 'VW', 'ZD', 'WZ', 'Z2', 'WŻ', 'LBN', 'WWZJ', '1A', 'MAG', 'A0', 'WZ4', '1P', 'KWŻ', '1NZ','2AS', '7AS', 'Z4S',
+ 'WWZ', 'FVVS', '1BN', 'L', 'WWW', 'S', '2AŚ', 'FVS', 'WZZ', 'FWD', 'WW2', 'ZRC', 'WW', 'RS', 'Z', 'AS', 'HDPE18',
+ 'WZJ', 'M7', 'WĘ', 'WWZZ', 'NZ', '2ZAS', 'ZWWZ', 'KWZ', 'M2', 'ZAŚ', 'WWWZ', 'W2Ż', 'VZ', 'WWWW', '_ZAS', 'ALLETSWZ',
+ '1R78', 'P', 'MZ', 'WŻ2', 'MAQ', 'WZ2', '2A5', 'T', 'ŻAS', 'KWZZ', 'WWZ2', 'MJIG', 'ZAS', 'ŁBN', 'RW', 'ŁP', 'LP',
+ 'Ł4U1', 'ZAŚS', 'W2','WZŻ', 'WŻŻ', 'ZA5','BN', }
+
+ {'',  'ZD', 'Z2',  '1A', 'MAG', 'A0',  'L',  'S', 'FWD', 'ZRC', 'HDPE18', 'WĘ', '1R78', 'P', 'MAQ', 'T', 'MJIG',  
+ 'Ł4U1',  }
+
+ ----------------------------
